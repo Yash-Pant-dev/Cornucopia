@@ -1,11 +1,11 @@
 async function getData() {
     
     console.log("OK not!")
-    const res = await fetch("http://127.0.0.1:8080/");
+    const res = await fetch("http://127.0.0.1:8080/", {cache: "no-store"});
     const data = await res.json()
     console.log(data)
     
-    return data;
+    return data.ID;
 
 }
 
@@ -14,7 +14,7 @@ export default async function HomePage() {
     const data = await getData()
     return (
         <div>
-            Hello World! {data}
+            Hello World!<p> {data}</p>
         </div>
     )
 }
